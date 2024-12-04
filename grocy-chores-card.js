@@ -411,7 +411,7 @@ class GrocyChoresCard extends LitElement {
             return html`
                 <mwc-icon-button class="track-button"
                                  .label=${this._translate("Track")}
-                                 @click=${() => this._trackChore(item.id, item.name)}>
+                                 @click=${() => this._trackChore(item.id, item.name, item.__user_id)}>
                     <ha-icon class="track-button-icon" style="--mdc-icon-size: ${this.chore_icon_size}px;"
                              .icon=${this.chore_icon}></ha-icon>
                 </mwc-icon-button>
@@ -420,7 +420,7 @@ class GrocyChoresCard extends LitElement {
 
         return html`
             <mwc-button
-                    @click=${() => this._trackChore(item.id, item.name)}>
+                    @click=${() => this._trackChore(item.id, item.name, item.__user_id)}>
                 ${this._translate("Track")}
             </mwc-button>
         `
@@ -679,12 +679,12 @@ class GrocyChoresCard extends LitElement {
         }
     }
 
-    _trackChore(choreId, choreName) {
+    _trackChore(choreId, choreName, doneBy) {
         // Hide the chore on the next render, for better visual feedback
         this.local_cached_hidden_items.push(`chore${choreId}`);
         this.requestUpdate();
         this._hass.callService("grocy", "execute_chore", {
-            chore_id: choreId, done_by: this._getUserId()
+            chore_id: choreId, done_by: doneBy
         });
         this._showTrackedToast(choreName);
     }
