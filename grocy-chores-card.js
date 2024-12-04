@@ -854,10 +854,10 @@ class GrocyChoresCard extends LitElement {
 window.customCards = window.customCards || [];
 window.customCards.push({
     type: 'grocy-chores-card',
-    name: 'Grocy Chores and Tasks Card',
+    name: 'Grocy Chores and Tasks Card - Custom',
     preview: false,
     description: 'A card used to display chores and/or tasks from the Grocy custom component.',
-    documentationURL: 'https://github.com/isabellaalstrom/lovelace-grocy-chores-card'
+    documentationURL: 'https://github.com/ondejstasek/lovelace-grocy-chores-card'
 });
 
 customElements.define('grocy-chores-card', GrocyChoresCard);
