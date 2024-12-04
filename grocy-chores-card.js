@@ -346,7 +346,7 @@ class GrocyChoresCard extends LitElement {
     }
 
     _shouldRenderDueInDays(item) {
-        return !this.hide_text_with_no_data || item.__due_date != null;
+        return this.show_due && (!this.hide_text_with_no_data || item.__due_date != null);
     }
 
     _renderDueInDays(item) {
@@ -797,6 +797,7 @@ class GrocyChoresCard extends LitElement {
         this.show_chores_without_due = this.config.show_chores_without_due ?? true;
         this.show_tasks_without_due = this.config.show_tasks_without_due ?? true;
         this.show_assigned = this.config.show_assigned ?? true;
+        this.show_due = this.config.show_due ?? true;
         this.show_track_button = this.config.show_track_button ?? true;
         this.show_last_tracked = this.config.show_last_tracked ?? true;
         this.show_last_tracked_by = this.config.show_last_tracked_by ?? true;
