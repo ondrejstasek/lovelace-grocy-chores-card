@@ -1,6 +1,7 @@
 import {html, LitElement, nothing} from "lit";
 import {DateTime} from "luxon";
 import style from './style.js';
+import { Fireworks } from 'fireworks-js';
 
 class GrocyChoresCard extends LitElement {
 
@@ -714,6 +715,7 @@ class GrocyChoresCard extends LitElement {
             });
         }
         this._fireHaptic();
+        new Fireworks.default(document.querySelector('hui-sections-view')).launch(Math.floor(Math.random() * 10) + 5)
     }
     
     _fireHaptic() {
