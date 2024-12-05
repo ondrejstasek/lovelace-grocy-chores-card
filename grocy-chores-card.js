@@ -715,7 +715,7 @@ class GrocyChoresCard extends LitElement {
             });
         }
         this._fireHaptic();
-        new Fireworks(document.querySelector('hui-sections-view')).launch(Math.floor(Math.random() * 10) + 5)
+        new Fireworks(document).launch(Math.floor(Math.random() * 10) + 5)
     }
     
     _fireHaptic() {
