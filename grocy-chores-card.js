@@ -413,7 +413,7 @@ class GrocyChoresCard extends LitElement {
                                  .label=${this._translate("Track")}
                                  @click=${() => this._trackChore(item.id, item.name, item.__user_id)}>
                     <ha-icon class="track-button-icon" style="--mdc-icon-size: ${this.chore_icon_size}px;"
-                             .icon=${this.chore_icon}></ha-icon>
+                             .icon=${item.userfields.icon ?? this.chore_icon}></ha-icon>
                 </mwc-icon-button>
             `
         }
