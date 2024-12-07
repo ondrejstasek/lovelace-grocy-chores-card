@@ -362,7 +362,7 @@ class GrocyChoresCard extends LitElement {
     _renderItemName(item) {
         return html`
             <div class="primary">
-                ${item.__filtered_name ?? item.name}
+                ${(item.__filtered_name ?? item.name).replace(/^.*: /i, "")}
             </div>
         `
     }
@@ -715,7 +715,7 @@ class GrocyChoresCard extends LitElement {
             });
         }
         this._fireHaptic();
-        new Fireworks(document.body).launch(Math.floor(Math.random() * 10) + 5)
+        new Fireworks(document.querySelector("body > home-assistant").shadowRoot.querySelector("home-assistant-main")).launch(Math.floor(Math.random() * 10) + 5)
     }
     
     _fireHaptic() {
